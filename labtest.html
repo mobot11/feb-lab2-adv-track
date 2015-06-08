@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+function sumArray(numberArray) {
+  var sum = 0;
+  // TODO: implement me using forEach
+  numberArray.forEach(function(value){
+    sum += value;
+  })
+  return sum;
+}
+
+var manyArrays = [[0,0,6], [500, 600, 700], [1000, 20, 30], [4, 2, 1]];
+
+var Sorter = function (arrayOfArrays){
+  this.arrayOfArrays = arrayOfArrays;
+}
+Sorter.prototype.sumArray = function(numberArray) {
+  var sum = 0;
+  numberArray.forEach(function(value){
+    sum += value;
+  })
+  return sum;
+}
+
+Sorter.prototype.sumSort = function() {
+  var firstArray;
+  var secondArray;
+  return this.arrayOfArrays.sort(function(a, b) {
+    firstArray = this.sumArray(a);
+    secondArray = this.sumArray(b);
+    return firstArray > secondArray;
+    // TODO: implement me using sumArray
+    //  order the arrays based on the sum of the numbers
+    //  inside each array
+  });
+}
+
+var sorter = new Sorter(manyArrays);
+
+sorter.sumSort();
+</script>
+</body>
+</html>
